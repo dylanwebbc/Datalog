@@ -1,0 +1,22 @@
+Schemes:
+   foxtrot(a,b)
+   golf(e,f)
+   hotel(c,d)
+
+Facts:
+   foxtrot('1','2').
+   foxtrot('4','3').
+   golf('3','2').
+   hotel('3','5').
+
+Rules:
+   hotel(A,B):-foxtrot(A,B).
+   hotel(X,Y):-golf(X,R),foxtrot(Y,S).
+   golf(C,D):-foxtrot(C,X),hotel(X,D).
+
+Queries:
+   golf('4',B)?
+   hotel(E,'3')?
+   foxtrot(A,B)?
+   golf(A,B)?
+   hotel(A,B)?
